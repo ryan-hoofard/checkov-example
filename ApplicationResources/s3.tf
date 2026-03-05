@@ -27,24 +27,24 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
   }
 }
 
-resource "aws_s3_bucket_lifecycle_configuration" "s3_objects_transition" {
-  bucket = aws_s3_bucket.this.id
-  rule{
-    id     = "delete rule for checkov file versions"
-    status = "Enabled"
-    noncurrent_version_expiration {
-      noncurrent_days = 30
-    }
-    abort_incomplete_multipart_upload {
-      days_after_initiation = 7
-    }
-  }
-}
+# resource "aws_s3_bucket_lifecycle_configuration" "s3_objects_transition" {
+#   bucket = aws_s3_bucket.this.id
+#   rule{
+#     id     = "delete rule for checkov file versions"
+#     status = "Enabled"
+#     noncurrent_version_expiration {
+#       noncurrent_days = 30
+#     }
+#     abort_incomplete_multipart_upload {
+#       days_after_initiation = 7
+#     }
+#   }
+# }
 
-resource "aws_s3_bucket_versioning" "versioning" {
-  bucket = aws_s3_bucket.this.id
+# resource "aws_s3_bucket_versioning" "versioning" {
+#   bucket = aws_s3_bucket.this.id
 
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
+#   versioning_configuration {
+#     status = "Enabled"
+#   }
+# }
