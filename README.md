@@ -1,1 +1,0 @@
-This template is used to onboard new terraform repositories.  Once you have created a new repository based on this one in GitHub, the only thing you need to do is add a new entry to the trust relationship managed in https://github.com/ryan-hoofard/role-management
