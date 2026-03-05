@@ -1,0 +1,19 @@
+name: prod terraform w/ oidc
+on:
+  push:
+    branches:
+      - prod
+  pull_request:
+    branches:
+      - prod
+
+jobs:
+  prod-plan:
+    uses: ./.github/workflows/reusable-terraform-workflow.yml
+    permissions:
+      id-token: write
+      contents: read
+    with:
+      environment: prod
+      region: us-west-2
+      role: arn:aws:iam::767397928267:role/ryanh-github-oidc-role-test

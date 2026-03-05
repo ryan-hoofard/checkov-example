@@ -1,0 +1,22 @@
+name: dev terraform w/ oidc
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  dev-deploy:
+    uses: ./.github/workflows/reusable-terraform-workflow.yml
+    permissions:
+      id-token: write
+      contents: read
+    with:
+      region: us-east-1
+      environment: dev
+      role: arn:aws:iam::767397928267:role/ryanh-github-oidc-role-test
+
+
+  
