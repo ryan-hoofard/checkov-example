@@ -5,6 +5,7 @@ provider "aws" {
         Workload    = "OIS"
         Application = "Example"
         Billing     = "TBD"
+        DMPID       = "TBD"
    }
  }
 }
